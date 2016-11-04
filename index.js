@@ -11,10 +11,10 @@ const responseTimePercentiles = {
   100: 8000
 };
 
-let responseTimes = [];
+var responseTimes = [];
 
 Object.keys(responseTimePercentiles).reverse().forEach((percentile) => {
-  for(let i = percentile - 1; i >= 0; i--) {
+  for(var i = percentile - 1; i >= 0; i--) {
     responseTimes[i] = responseTimePercentiles[percentile];
   }
 });
