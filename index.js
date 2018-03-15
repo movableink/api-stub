@@ -1,6 +1,6 @@
 const http = require('http');
 
-const hostname = process.env.ADDRESS || '127.0.0.1';
+const hostname = process.env.ADDRESS || '0.0.0.0';
 const port = process.env.PORT || 9097;
 
 const responseTimePercentiles = {
