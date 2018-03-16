@@ -4,11 +4,11 @@ const hostname = process.env.ADDRESS || '0.0.0.0';
 const port = process.env.PORT || 9097;
 
 const responseTimePercentiles = {
-  50:  200,
-  90:  250,
-  95:  500,
-  99:  500,
-  100: 8000
+  50:  50,
+  90:  50,
+  95:  50,
+  99:  50,
+  100: 50
 };
 
 var responseTimes = [];
