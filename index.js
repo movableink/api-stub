@@ -4,11 +4,11 @@ const hostname = process.env.ADDRESS || '0.0.0.0';
 const port = process.env.PORT || 9097;
 
 const responseTimePercentiles = {
-  50:  50,
-  90:  50,
-  95:  50,
-  99:  50,
-  100: 50
+  50:  500,
+  90:  500,
+  95:  500,
+  99:  500,
+  100: 500
 };
 
 var responseTimes = [];
@@ -19,7 +19,7 @@ Object.keys(responseTimePercentiles).reverse().forEach((percentile) => {
   }
 });
 
-const responseJson = JSON.stringify({"glossary":{"title":"example glossary","GlossDiv":{"title":"S","GlossList":{"GlossEntry":{"ID":"SGML","SortAs":"SGML","GlossTerm":"Standard Generalized Markup Language","Acronym":"SGML","Abbrev":"ISO 8879:1986","GlossDef":{"para":"A meta-markup language, used to create markup languages such as DocBook.","GlossSeeAlso":["GML","XML"]},"GlossSee":"markup"}}}}});
+const responseJson = JSON.stringify({"glossary":{"title":"example glossary","GlossDiv":{"title":"S","GlossList":{"GlossEntry":{"ID":"SGML","SortAs":"SGML","GlossTerm":"Standard Generalized Markup Language","Acronym":"SGML","Abbrev":"ISO 8879:1986","GlossDef":{"para":"A meta-markup language, used to create markup languages such as DocBook.","GlossSeeAlso":["GML","XML"]},"GlossSee":"markup"}}}}}).repeat(10);
 
 const server = http.createServer((req, res) => {
   const responseTime = responseTimes[Math.floor(Math.random() * responseTimes.length)];
